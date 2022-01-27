@@ -7,4 +7,10 @@ This document contains all the documentation and links that will helped me to un
 > Pre-requisite you'll need to have some basic knowledge of the Linux system, DevOps tools, networking basics, source control management such as Git, Database, security, YAML and JSON conecpts.
 > For these details you can follow the [kodekloud course](- https://kodekloud.com/courses/devops-pre-requisite-course/) that will take you through the basics.
 > I'll start working with the kubernetes basics as the other things you might be aware of, if you need help understanding those you can checkout the course mentioned above.
-> 
+> Will follow the official documentation for the [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/). 
+
+  **Networking**
+  
+  
+  Kubernetes have different components that are listed here - https://kubernetes.io/docs/concepts/overview/components/. One of the base component is "etcd" that is used for storing consistent and highly-available key value used as Kubernetes' backing store for all cluster data. We also need to have setup the backup plan for those data. More information about the etcd - https://etcd.io/docs/
+    
