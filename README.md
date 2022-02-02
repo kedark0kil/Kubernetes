@@ -14,3 +14,4 @@ This document contains all the documentation and links that will helped me to un
   
   Kubernetes have different components that are listed here - https://kubernetes.io/docs/concepts/overview/components/. One of the base component is "etcd" that is used for storing consistent and highly-available key value used as Kubernetes' backing store for all cluster data. We also need to have setup the backup plan for those data. More information about the etcd - https://etcd.io/docs/
     
+https://www.infracloud.io/kubernetes-school/basics-of-kubernetes/what-is-kubernetes/
