@@ -21,4 +21,4 @@ This document contains all the documentation and links that will helped me to un
 > The components that are responsible for scheduling the pod are **kubelet and kubeproxy**. Kubelet is the service that communicate with the container on worker node and schedule the container.
 > The container engine that is running on the worker node can be docker, CRIO, etc.
 > Kubernetes cluster consist of all the above components and to communicate with the kubenetes cluster we need to talk to the API server, kubeconfig is the file which have all the details that can help to communicate to the Kubernetes API server, like authentication method, endpoint on which it is running, etc.
-> 
+> The life cycle for the kubernetes cluster - API server act as a entry point for the cluster then it will talk to the etcd(key-value pair storage). It'll get the pod created from the API server and kube-scheduler help to schedule the container on the worker node according to resources. And the component which manages the replicas of the container as per the configuration file. The kubeproxy and kubelet are the services that actually help in running the container on the nodes.
