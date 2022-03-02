@@ -70,3 +70,8 @@
 > There could be multiple pods running in the cluster, therefore to identify the sepcific pods we need to filter them out by using the labels. This will be usefull to monitor the pods that are created with the same label.
 
 **Commands**
+$ kubecutl create -f replicaset-definition.yaml
+$ kubectl get replicaset
+$ kubectl delete replicaset myapp-replicaset
+$ kubectl replace -f replicaset-definition.yaml
+$ kubecutl scale -f replicaset-definition.yaml
