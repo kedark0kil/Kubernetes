@@ -1,4 +1,4 @@
-**# Kubernetes
+**#1 Kubernetes
 Documentation and steps that I followed for kubernetes**
 
 This document contains all the documentation and links that will helped me to understand the concepts of the Kubernetes. All the course that I followd are from the Kodekloud also I'll add other google/YouTube links that'll help. 
@@ -24,8 +24,6 @@ This document contains all the documentation and links that will helped me to un
 > The life cycle for the kubernetes cluster - API server act as a entry point for the cluster then it will talk to the etcd(key-value pair storage). It'll get the pod created from the API server and kube-scheduler help to schedule the container on the worker node according to resources. And the component which manages the replicas of the container as per the configuration file. The kubeproxy and kubelet are the services that actually help in running the container on the nodes.
 > One of the most important component is configuration file of the kubernetes.  
 
-**Pod,Container and Node**
-> **Conatiner** - the smallest part on the cluster which runs the application by using the config file.
-> **Pod** - the container runs inside the pod and maintain the container replicas.
-> **Node** - the node has the pods running with different instances.
-> Pod have 1 to 1 relationship with the containers, If you want to scale up you create a new pod and to scale down you delete the existing pod. You do not add additional container to the existing pod for scaling the application. But this scenario changes when there's helper container which supports the application to process data, then that container can be inside the same pod. As when the application is termincated the helper will also get termincated. These two containers in the same pod and can communicate using localhost as they are in the same network.
+**#2 Pod,Container and Node**
+
+**#3 Replication Controller**
