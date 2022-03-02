@@ -1,1 +1,72 @@
+**#Replication Controller**
 
+> The configuration of the pods is set with replicas to maintain the high availability of the application. This helps in load balancing and scaling the application when the demand incrases, as it the spread across cluster in pods and multiple node.
+> The replication controller and the replication set have some differences but both are one and the same. 
+> To create the replication controller we'll create a YAML file which includes 4 sections:
+> 1. apiVersion: the api version 1 is compatible with the replication controller, therefore we'll use "apiVersion: v1"
+> 2. Kind: ReplicationController
+> 3. Metadata: is the data of the application along with the labels for the same.
+> 4. Spec: This section includes a template of the pod that we need to create replicas.
+>       Under the spec section we have to define the number of pods.
+
+**rc-definition.yaml**
+>      apiVersion: v1
+>      kind: ReplicationController
+>      metadata:
+>         name: myapp-rc
+>         labels:
+>              app: myapp-rc
+>              type: front-end
+>      spec:
+>          -template:
+>                metadata:
+>                     name: myapp-pod
+>                     labels:
+>                         app: myapp
+>                         type: front-end
+>                      spec:
+>                         containers:
+>                             name: nginx-container 
+>                             image: nginx
+>      replicas: 3
+>
+> $kubectl create -f rc-definition.yaml   ---> to create the replicationcontroller
+>  
+> $kubectl get replicationcontroller   ---> to list the replicationcontroller 
+> 
+> $kubectl get pods   ---> to get the running pods(replicas)
+
+**Replication set**
+> The replication set or the replication controller makes ensure that we have sepcified active pods running all the time. The replicaset can also monitor the existing pods and incase they are not created the replicaset will create them for you.
+> 
+>      apiVersion: v1
+>      kind: ReplicaSet
+>      metadata:
+>         name: myapp-rc
+>         labels:
+>              app: myapp-rc
+>              type: front-end
+>      spec:
+>          -template:
+>                metadata:
+>                     name: myapp-pod
+>                     labels:
+>                         app: myapp
+>                         type: front-end
+>                      spec:
+>                         containers:
+>                             name: nginx-container
+>                             image: nginx
+>      replicas: 3
+>      selector:
+>           matchLabels: 
+>                 type: front-end
+> $kubectl create -f replicaset-definition.yaml   ---> to create the replicaset
+>  
+> $kubectl get replicaset   ---> to list the replicaset
+> 
+> $kubectl get pods   ---> to get the running pods(replicas)
+>
+> There could be multiple pods running in the cluster, therefore to identify the sepcific pods we need to filter them out by using the labels. This will be usefull to monitor the pods that are created with the same label.
+
+**Commands**
