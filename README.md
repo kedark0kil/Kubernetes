@@ -29,34 +29,3 @@ This document contains all the documentation and links that will helped me to un
 > **Pod** - the container runs inside the pod and maintain the container replicas.
 > **Node** - the node has the pods running with different instances.
 > Pod have 1 to 1 relationship with the containers, If you want to scale up you create a new pod and to scale down you delete the existing pod. You do not add additional container to the existing pod for scaling the application. But this scenario changes when there's helper container which supports the application to process data, then that container can be inside the same pod. As when the application is termincated the helper will also get termincated. These two containers in the same pod and can communicate using localhost as they are in the same network.
-
-**Replication Controller**
-> The configuration of the pods is set with replicas to maintain the high availability of the application. This helps in load balancing and scaling the application when the demand incrases, as it the spread across cluster in pods and multiple node.
-> The replication controller and the replication set have some differences but both are one and the same. 
-> To create the replication controller we'll create a YAML file which includes 4 sections:
-> 1. apiVersion: the api version 1 is compatible with the replication controller, therefore we'll use "apiVersion: v1"
-> 2. Kind: ReplicationController
-> 3. Metadata: is the data of the application along with the labels for the same.
-> 4. Spec: This section includes a template of the pod that we need to create replicas.
->       Under the spec section we have to define the number of pods.
-
-**rc-definition.yaml**
->      apiVersion: v1
->      kind: ReplicationController
->      metadata:
->         name: myapp-rc
->         labels:
->              app: myapp-rc
->              type: front-end
->      spec:
->          -template:
->                metadata:
->                     name: myapp-pod
->                     labels:
->                         app: myapp
->                         type: front-end
->                      spec:
->                         containers:
->                             name: nginx-controller
->                             image: nginx
->      replicas: 3
