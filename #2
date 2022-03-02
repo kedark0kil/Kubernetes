@@ -1,0 +1,5 @@
+**Pod,Container and Node**
+> **Conatiner** - the smallest part on the cluster which runs the application by using the config file.
+> **Pod** - the container runs inside the pod and maintain the container replicas.
+> **Node** - the node has the pods running with different instances.
+> Pod have 1 to 1 relationship with the containers, If you want to scale up you create a new pod and to scale down you delete the existing pod. You do not add additional container to the existing pod for scaling the application. But this scenario changes when there's helper container which supports the application to process data, then that container can be inside the same pod. As when the application is termincated the helper will also get termincated. These two containers in the same pod and can communicate using localhost as they are in the same network.
