@@ -27,3 +27,4 @@ This document contains all the documentation and links that will helped me to un
 **#2 Pod,Container and Node**
 
 **#3 Replication Controller**
+**#4 Deployments**
