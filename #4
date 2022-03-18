@@ -1,0 +1,10 @@
+Static Pods
+
+Static pods are created using file which is placed under the "manifest" directory on the host or any location where the files are stored and provide that path to create the pod in the kubelet service. And these files(pod definition file) will create only pods and not the replicas of the pods. Static pods are the individual nodes that create and maintain the pods based on the configuration files as it has it's docker service running. The pods are created by the kubelet service.
+And as we do not have the cluster where we have do not have access to the "kubectl" , therefore we need to use the docker commands for the execution.
+The node can take input from multiple sources to create the pods such as the pod-definition files. And the another is http API-endpoint which provides the input from kube-apiserver to kubelet.
+The kubelet is able to create both kinds of pods static and the once from the apiserver at the same time.
+The kubectl will display static as the normal pods while showing the list. The kube-apiserver has readonly permission for the static pods and is not able to modify or delete the pods as they are creted from the pod-definition file stored on the node. In the listing the pod will show along with the node name.
+
+> the static pods are not dependent on the kube-apiserver,so we can use them to deploy the components of the controlplane itself.
+> installation of kubelet
